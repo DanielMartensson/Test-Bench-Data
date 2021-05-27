@@ -17,7 +17,7 @@ line charts, download data in form of CSV files and it's easy to include more da
 1. Download this project
 2. Configure all `.properties` files after your own settings
 3. Go to `LxDataRepository.java` and `RsqDataRepository.java` and uncomment the right `@Query` command for your SQL database
-4. Run the project with `mvn spring-boot:run`
+4. Run the project with `mvn spring-boot:run -Pproduction`
 
 # Necessary softwares
 
