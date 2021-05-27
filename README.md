@@ -1,43 +1,34 @@
-# My App
+# Vaadin Test Bench Data
 
-This is an example project that can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
+This is an example where I'm using 
 
-The project is a standard Maven project, so you can import it to your IDE of choice. [Read more how to set up a development environment](https://vaadin.com/docs/v14/flow/installing/installing-overview.html) for Vaadin projects (Windows, Linux, macOS). 
+- Spring JPA for MySQL and MSSQL
+- Spring Security for login
+- Vaadin CRUD Add-on
+- Vaadin App-Layout
+- FTP Downloader
+- ApexCharts
 
-This project was created from https://start.vaadin.com.
+This web application can plot data from database, seach database, change, delete, create new data, analyze data in form of
+line charts, download data in form of CSV files and it's easy to include more databases.
 
-## Running and debugging the application
+# How to use
 
-### Running the application from the command line.
-To run from the command line, use `mvn` and open http://localhost:8080 in your browser.
+1. Download this project
+2. Configure all `.properties` files after your own settings
+3. Go to `LxDataRepository.java` and `RsqDataRepository.java` and uncomment the right `@Query` command for your SQL database
+4. Run the project with `mvn spring-boot:run`
 
-### Running and debugging the application in Intellij IDEA
-- Locate the Application.java class in the Project view. It is in the src folder, under the main package's root.
-- Right-click on the Application class
-- Select "Debug 'Application.main()'" from the list
+# Necessary softwares
 
-After the application has started, you can view it at http://localhost:8080/ in your browser. 
-You can now also attach breakpoints in code for debugging purposes, by clicking next to a line number in any source file.
+- NodeJs +14
+- Maven
+- MySQL or MSSQL
+- OpenJDK +11
 
-### Running and debugging the application in Eclipse
-- Locate the Application.java class in the Package Explorer. It is in `src/main/java`, under the main package.
-- Right-click on the file and select `Debug As` --> `Java Application`.
+# How it looks like
 
-Do not worry if the debugger breaks at a `SilentExitException`. This is a Spring Boot feature and happens on every startup.
+Login page 
 
-After the application has started, you can view it at http://localhost:8080/ in your browser.
-You can now also attach breakpoints in code for debugging purposes, by clicking next to a line number in any source file.
-## Project structure
 
-- `MainView.java` in `src/main/java` contains the navigation setup. It uses [App Layout](https://vaadin.com/components/vaadin-app-layout).
-- `views` package in `src/main/java` contains the server-side Java views of your application.
-- `views` folder in `frontend/` contains the client-side JavaScript views of your application.
 
-## What next?
-
-[vaadin.com](https://vaadin.com) has lots of material to help you get you started:
-
-- Follow the tutorials in [vaadin.com/tutorials](https://vaadin.com/tutorials). Especially [vaadin.com/tutorials/getting-started-with-flow](https://vaadin.com/tutorials/getting-started-with-flow) is good for getting a grasp of the basic Vaadin concepts.
-- Read the documentation in [vaadin.com/docs](https://vaadin.com/docs).
-- For a bigger Vaadin application example, check out the Full Stack App starter from [vaadin.com/start](https://vaadin.com/start).
