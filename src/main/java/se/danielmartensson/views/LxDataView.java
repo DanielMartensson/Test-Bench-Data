@@ -30,10 +30,6 @@ import se.danielmartensson.views.LxDataView;
  * The main view is a top-level placeholder for other views.
  */
 @Route(value = "", layout = MenuLayout.class)
-//@PWA(name = "Nordhydraulic Test Bench Data", shortName = "Nordhydraulic Test Bench Data", enableInstallPrompt = false)
-//@JsModule("./styles/shared-styles.js")
-//@Theme(value = Lumo.class, variant = Lumo.DARK)
-//@CssImport("./views/main/main-view.css")
 public class LxDataView extends VerticalLayout {
 
 	private static final long serialVersionUID = 1L;

@@ -30,9 +30,6 @@ import se.danielmartensson.views.RsqDataView;
  * The main view is a top-level placeholder for other views.
  */
 @Route(value = "rsqData", layout = MenuLayout.class)
-//@JsModule("./styles/shared-styles.js")
-//@Theme(value = Lumo.class, variant = Lumo.DARK)
-//@CssImport("./views/main/main-view.css")
 public class RsqDataView extends VerticalLayout {
 
 	/**
