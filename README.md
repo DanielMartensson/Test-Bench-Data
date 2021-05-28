@@ -32,3 +32,17 @@ Login page
 
 ![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/login.PNG)
 
+Data table
+
+![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/Data.PNG)
+
+Plotting curve
+
+![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/Curve.PNG)
+
+Other plots such as particle coutning and spool leakage
+
+![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/Particle%20counting%20and%20spool%20leakage.PNG)
+
+
+
