@@ -1,11 +1,11 @@
-# Vaadin Test Bench Data
+# Test Bench Data
 
 This is an example where I'm using 
 
 - Spring JPA for MySQL and MSSQL
 - Spring Security for login
-- Vaadin CRUD Add-on
-- Vaadin App-Layout
+- CRUD Add-on
+- App-Layout
 - FTP Downloader
 - ApexCharts
 
@@ -30,19 +30,19 @@ line charts, download data in form of CSV files and it's easy to include more da
 
 Login page 
 
-![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/login.PNG)
+![](https://github.com/DanielMartensson/Test-Bench-Data/blob/main/pictures/login.PNG)
 
 Data table
 
-![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/Data.PNG)
+![](https://github.com/DanielMartenssonTest-Bench-Data/blob/main/pictures/Data.PNG)
 
 Plotting curve
 
-![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/Curve.PNG)
+![](https://github.com/DanielMartensson/Test-Bench-Data/blob/main/pictures/Curve.PNG)
 
 Other plots such as particle coutning and spool leakage
 
-![](https://github.com/DanielMartensson/Vaadin-Test-Bench-Data/blob/main/pictures/Particle%20counting%20and%20spool%20leakage.PNG)
+![](https://github.com/DanielMartensson/Test-Bench-Data/blob/main/pictures/Particle%20counting%20and%20spool%20leakage.PNG)
 
 
 
