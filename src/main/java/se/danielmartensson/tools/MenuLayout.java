@@ -33,14 +33,14 @@ import se.danielmartensson.views.RsqDataView;
 @Theme(value = Lumo.class, variant = Lumo.DARK)
 @Component
 @UIScope
-public class MenuLayout extends AppLayoutRouterLayout<LeftLayouts.LeftResponsive> {
+public class MenuLayout extends AppLayoutRouterLayout<LeftLayouts.LeftResponsiveHybrid> {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
     public MenuLayout() {
-    	init(AppLayoutBuilder.get(LeftLayouts.LeftResponsive.class)
+    	init(AppLayoutBuilder.get(LeftLayouts.LeftResponsiveHybrid.class)
     			.withTitle("Vaadin Test Bench Data")
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(HEADER,
