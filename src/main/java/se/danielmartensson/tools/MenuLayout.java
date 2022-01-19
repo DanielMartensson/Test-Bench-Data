@@ -3,6 +3,8 @@ package se.danielmartensson.tools;
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 import com.github.appreciated.app.layout.component.applayout.LeftLayouts;
@@ -23,7 +25,8 @@ import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 
 import se.danielmartensson.configurations.security.SecurityConfiguration;
-import se.danielmartensson.views.ChangePasswordView;
+import se.danielmartensson.service.UserSettingsService;
+import se.danielmartensson.views.UserSettingsView;
 import se.danielmartensson.views.LxCurveView;
 import se.danielmartensson.views.LxDataView;
 import se.danielmartensson.views.RsqDataView;
@@ -39,13 +42,13 @@ public class MenuLayout extends AppLayoutRouterLayout<LeftLayouts.LeftResponsive
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-
-    public MenuLayout() {
+	
+    public MenuLayout(UserSettingsService userSettingsService) {
     	init(AppLayoutBuilder.get(LeftLayouts.LeftResponsiveHybrid.class)
     			.withTitle("Nordhydraulic Test Bench Data")
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(HEADER,
-                                new LeftHeaderItem("Nordhydraulic Test Bench Data", "Version 1.0", "images/BarPicture.png")
+                                new LeftHeaderItem("Nordhydraulic Test Bench Data", "Logged in as: " + userSettingsService.getLoggedInUsername(), "images/BarPicture.png")
                         )
                         .add(LeftSubMenuBuilder.get("Bänk 515", VaadinIcon.PLUS.create())
                                         .add(new LeftNavigationItem("LX Data", VaadinIcon.DATABASE.create(), LxDataView.class),
@@ -53,7 +56,7 @@ public class MenuLayout extends AppLayoutRouterLayout<LeftLayouts.LeftResponsive
                                              new LeftNavigationItem("RSQ Data", VaadinIcon.DATABASE.create(), RsqDataView.class))
                                         .build())
                         .addToSection(FOOTER,
-                        		new LeftNavigationItem("Change password", VaadinIcon.PASSWORD.create(), ChangePasswordView.class),
+                        		new LeftNavigationItem("User settings", VaadinIcon.USER.create(), UserSettingsView.class),
                         		new LeftClickableItem("Logout", VaadinIcon.SIGN_OUT.create(), clickEvent -> UI.getCurrent().getPage().setLocation(SecurityConfiguration.LOGOUT))
                         )
                         .build())

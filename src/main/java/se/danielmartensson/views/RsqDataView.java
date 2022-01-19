@@ -21,6 +21,7 @@ import com.vaadin.flow.router.Route;
 
 import se.danielmartensson.entities.RsqData;
 import se.danielmartensson.service.RsqDataService;
+import se.danielmartensson.service.UserSettingsService;
 import se.danielmartensson.tools.DownloadTools;
 import se.danielmartensson.tools.GetSetClassInformation;
 import se.danielmartensson.tools.Graf;
@@ -39,13 +40,15 @@ public class RsqDataView extends VerticalLayout {
 
 	private List<RsqData> crudTable;
 
-	public RsqDataView(RsqDataService rsqDataService) {
+	public RsqDataView(RsqDataService rsqDataService, UserSettingsService userSettingsService) {
 
 		// Configuration of the grid
 		GridCrud<RsqData> crud = new GridCrud<>(RsqData.class);
 		crud.getGrid().setColumns("orderNumber", "valveName", "serialNumber", "valvePort", "testNumber", "valveType", "operator");
 		crud.getGrid().setColumnReorderingAllowed(true);
 		crud.setAddOperationVisible(false);
+		crud.setUpdateOperationVisible(userSettingsService.loggedInUserIsMaster());
+		crud.setDeleteOperationVisible(userSettingsService.loggedInUserIsMaster());
 
 		// Filter
 		IntegerField maxLog = new IntegerField();

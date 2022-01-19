@@ -21,6 +21,7 @@ import com.vaadin.flow.router.Route;
 
 import se.danielmartensson.entities.LxData;
 import se.danielmartensson.service.LxDataService;
+import se.danielmartensson.service.UserSettingsService;
 import se.danielmartensson.tools.DownloadTools;
 import se.danielmartensson.tools.GetSetClassInformation;
 import se.danielmartensson.tools.Graf;
@@ -36,13 +37,15 @@ public class LxDataView extends VerticalLayout {
 
 	private List<LxData> crudTable;
 
-	public LxDataView(LxDataService lxDataService) {
+	public LxDataView(LxDataService lxDataService, UserSettingsService userSettingsService) {
 
 		// Configuration of the grid
 		GridCrud<LxData> crud = new GridCrud<>(LxData.class);
 		crud.getGrid().setColumns("orderNumber", "valveName", "serialNumber", "valvePort", "testNumber", "valveType", "operator");
 		crud.getGrid().setColumnReorderingAllowed(true);
 		crud.setAddOperationVisible(false);
+		crud.setUpdateOperationVisible(userSettingsService.loggedInUserIsMaster());
+		crud.setDeleteOperationVisible(userSettingsService.loggedInUserIsMaster());
 
 		// Filter
 		IntegerField maxLog = new IntegerField();

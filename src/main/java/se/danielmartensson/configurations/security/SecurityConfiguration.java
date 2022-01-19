@@ -24,11 +24,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private static final String LOGOUT_SUCCESS_URL = "/login";
 	public static final String LOGOUT = "/logout";
 
-	@Value("${login.password}")
-	private String defaultPassword;
+	@Value("${login.masterPassword}")
+	private String masterPassword;
 
-	@Value("${login.username}")
-	private String defaultUsername;
+	@Value("${login.masterName}")
+	private String masterName;
+	
+	@Value("${login.masterRights}")
+	private String masterRights;
+	
+	@Value("${login.slavePassword}")
+	private String slavePassword;
+
+	@Value("${login.slaveName}")
+	private String slaveName;
+	
+	@Value("${login.slaveRights}")
+	private String slaveRights;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -68,12 +80,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
-    	// Create default user
-	    UserDetails defaultUser =
-	        User.withUsername(defaultUsername)
-	            .password("{noop}" + defaultPassword)
-	            .roles("User")
+    	// Create master user
+	    UserDetails masterUser =
+	        User.withUsername(masterName)
+	            .password("{noop}" + masterPassword)
+	            .roles(masterRights)
 	            .build();
-        return new InMemoryUserDetailsManager(defaultUser);
+	    
+		 // Create master user
+		    UserDetails slaveUser =
+		        User.withUsername(slaveName)
+		            .password("{noop}" + slavePassword)
+		            .roles(slaveRights)
+		            .build();
+        return new InMemoryUserDetailsManager(masterUser, slaveUser);
     }
 }
