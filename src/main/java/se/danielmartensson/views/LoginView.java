@@ -12,29 +12,29 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Login")
 public class LoginView extends VerticalLayout implements BeforeEnterObserver{
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	public static final String ROUTE = "login";
-	
-	private LoginForm login = new LoginForm(); 
+
+	private LoginForm login = new LoginForm();
 
 	public LoginView(){
 		login.setForgotPasswordButtonVisible(false);
 		addClassName("login-view");
 		setSizeFull();
-		setAlignItems(Alignment.CENTER); 
+		setAlignItems(Alignment.CENTER);
 		setJustifyContentMode(JustifyContentMode.CENTER);
 
-		login.setAction("login");  
+		login.setAction("login");
 
-		add(new H1("Test Bench Data"), login);
+		add(new H1("Nordhydraulic Test Bench Data"), login);
 	}
 
 	@Override
 	public void beforeEnter(BeforeEnterEvent beforeEnterEvent) {
 		// inform the user about an authentication error
-		if(beforeEnterEvent.getLocation() 
+		if(beforeEnterEvent.getLocation()
         .getQueryParameters()
         .getParameters()
         .containsKey("error")) {

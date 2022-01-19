@@ -10,9 +10,9 @@ import se.danielmartensson.repositories.RsqDataRepository;
 
 @Service
 public class RsqDataService {
-	
+
 	private final RsqDataRepository rsqDataRepository;
-	
+
 	public RsqDataService(RsqDataRepository rsqDataRepository) {
         this.rsqDataRepository = rsqDataRepository;
     }
@@ -34,7 +34,7 @@ public class RsqDataService {
 	public void delete(RsqData rsqData) {
 		rsqDataRepository.delete(rsqData);
 	}
-	
+
 	public List<RsqData> findByMultipleValues(String orderNumber, String valveName, String serialNumber, String valvePort, String testNumber, String valveType, Integer maxLog) {
 		if(maxLog < 0)
 			maxLog = 0;

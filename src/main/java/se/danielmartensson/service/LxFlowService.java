@@ -9,9 +9,9 @@ import se.danielmartensson.repositories.LxFlowRepository;
 
 @Service
 public class LxFlowService {
-	
+
 	private final LxFlowRepository lxFlowRepository;
-	
+
 	public LxFlowService(LxFlowRepository lxFlowRepository) {
         this.lxFlowRepository = lxFlowRepository;
     }

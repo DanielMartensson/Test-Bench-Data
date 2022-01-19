@@ -15,7 +15,7 @@ public class LxFlow {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private float f0;
 	private float f1;
 	private float f2;

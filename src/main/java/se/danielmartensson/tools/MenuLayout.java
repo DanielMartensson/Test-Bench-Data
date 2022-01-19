@@ -1,5 +1,10 @@
 package se.danielmartensson.tools;
 
+import static com.github.appreciated.app.layout.entity.Section.FOOTER;
+import static com.github.appreciated.app.layout.entity.Section.HEADER;
+
+import org.springframework.stereotype.Component;
+
 import com.github.appreciated.app.layout.component.applayout.LeftLayouts;
 import com.github.appreciated.app.layout.component.builder.AppLayoutBuilder;
 import com.github.appreciated.app.layout.component.menu.left.builder.LeftAppMenuBuilder;
@@ -17,12 +22,8 @@ import com.vaadin.flow.spring.annotation.UIScope;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 
-import org.springframework.stereotype.Component;
-
-import static com.github.appreciated.app.layout.entity.Section.FOOTER;
-import static com.github.appreciated.app.layout.entity.Section.HEADER;
-
 import se.danielmartensson.configurations.security.SecurityConfiguration;
+import se.danielmartensson.views.ChangePasswordView;
 import se.danielmartensson.views.LxCurveView;
 import se.danielmartensson.views.LxDataView;
 import se.danielmartensson.views.RsqDataView;
@@ -35,27 +36,28 @@ import se.danielmartensson.views.RsqDataView;
 @UIScope
 public class MenuLayout extends AppLayoutRouterLayout<LeftLayouts.LeftResponsiveHybrid> {
     /**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
     public MenuLayout() {
     	init(AppLayoutBuilder.get(LeftLayouts.LeftResponsiveHybrid.class)
-    			.withTitle("Vaadin Test Bench Data")
+    			.withTitle("Nordhydraulic Test Bench Data")
                 .withAppMenu(LeftAppMenuBuilder.get()
                         .addToSection(HEADER,
-                                new LeftHeaderItem("Test Bench Data", "Version 1.0", "images/BarPicture.png")
+                                new LeftHeaderItem("Nordhydraulic Test Bench Data", "Version 1.0", "images/BarPicture.png")
                         )
                         .add(LeftSubMenuBuilder.get("Bänk 515", VaadinIcon.PLUS.create())
                                         .add(new LeftNavigationItem("LX Data", VaadinIcon.DATABASE.create(), LxDataView.class),
                                              new LeftNavigationItem("LX Curve", VaadinIcon.LINE_CHART.create(), LxCurveView.class),
                                              new LeftNavigationItem("RSQ Data", VaadinIcon.DATABASE.create(), RsqDataView.class))
                                         .build())
-                        .addToSection(FOOTER, 
+                        .addToSection(FOOTER,
+                        		new LeftNavigationItem("Change password", VaadinIcon.PASSWORD.create(), ChangePasswordView.class),
                         		new LeftClickableItem("Logout", VaadinIcon.SIGN_OUT.create(), clickEvent -> UI.getCurrent().getPage().setLocation(SecurityConfiguration.LOGOUT))
                         )
                         .build())
-                .build());       
+                .build());
     }
 
 }

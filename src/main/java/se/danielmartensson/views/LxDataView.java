@@ -18,13 +18,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+
 import se.danielmartensson.entities.LxData;
 import se.danielmartensson.service.LxDataService;
 import se.danielmartensson.tools.DownloadTools;
 import se.danielmartensson.tools.GetSetClassInformation;
 import se.danielmartensson.tools.Graf;
 import se.danielmartensson.tools.MenuLayout;
-import se.danielmartensson.views.LxDataView;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -67,7 +67,7 @@ public class LxDataView extends VerticalLayout {
 		// Configuration of the user interface
 		crud.getCrudFormFactory().setUseBeanValidation(true);
 		crud.getCrudFormFactory().setDisabledProperties("id");
-		
+
 		// Download button
 		Anchor downloadButton = new Anchor();
 		downloadButton.getElement().setAttribute("download", true);
@@ -102,12 +102,12 @@ public class LxDataView extends VerticalLayout {
 				return lxDataService.save(lxData);
 			}
 		});
-		
+
 		// Plot values
 		ApexCharts graf = new Graf("Spool leakage & ISO contamination").getApexChart();
 		Button updateGraf = new Button("Update graph");
 		updateGraf.addClickListener(e -> updateGrafWithData(crudTable, graf));
-		
+
 		// Layout
 		VerticalLayout layout = new VerticalLayout(crud, new HorizontalLayout(downloadButton,updateGraf, maxLog), graf);
 		layout.setAlignItems(Alignment.START);
@@ -169,7 +169,7 @@ public class LxDataView extends VerticalLayout {
 			row += "\n";
 			stringWriter.write(row);
 		}
-		
+
 		// Try to download
 		downloadButton.removeHref();
 		downloadButton.setHref(DownloadTools.createStreamResource(stringWriter));

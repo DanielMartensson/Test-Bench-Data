@@ -11,7 +11,6 @@ import org.vaadin.crudui.crud.impl.GridCrud;
 import com.github.appreciated.apexcharts.ApexCharts;
 import com.github.appreciated.apexcharts.helper.Series;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -19,13 +18,14 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.Route;
+
 import se.danielmartensson.entities.LxData;
 import se.danielmartensson.service.LxDataService;
 import se.danielmartensson.tools.DownloadTools;
 import se.danielmartensson.tools.GetSetClassInformation;
 import se.danielmartensson.tools.Graf;
 import se.danielmartensson.tools.MenuLayout;
-import se.danielmartensson.views.LxCurveView;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -34,7 +34,7 @@ import se.danielmartensson.views.LxCurveView;
 public class LxCurveView extends VerticalLayout {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -72,7 +72,7 @@ public class LxCurveView extends VerticalLayout {
 		crud.getCrudFormFactory().setVisibleProperties("orderNumber", "valveName", "serialNumber", "valvePort", "testNumber", "valveType", "operator"); // We don't want to see the flow values
 		crud.getCrudFormFactory().setDisabledProperties("id");
 		crud.getCrudFormFactory().setDisabledProperties(CrudOperation.ADD);
-		
+
 
 		// Download button
 		Anchor downloadButton = new Anchor();
@@ -131,7 +131,7 @@ public class LxCurveView extends VerticalLayout {
 
 	private void updateGrafWithCurve(LxData lxData, ApexCharts graf) {
 		// Get data
-		Float[] current = GetSetClassInformation.getFieldValuesFloat(lxData.getLxCurrent(), new String[] {"id"});		
+		Float[] current = GetSetClassInformation.getFieldValuesFloat(lxData.getLxCurrent(), new String[] {"id"});
 		Float[] flow = GetSetClassInformation.getFieldValuesFloat(lxData.getLxFlow(), new String[] {"id"});
 
 		// Find max value and its index
@@ -159,7 +159,7 @@ public class LxCurveView extends VerticalLayout {
 		seriesList[0] = Graf.createSerie(flowUp, "Flow up");
 		seriesList[1] = Graf.createSerie(flowDown, "Flow down");
 		graf.updateSeries(seriesList);
-		
+
 	}
 
 	private void updateDownloadButtonForDownloadCurve(LxData lxData, Anchor downloadButton) {
@@ -169,11 +169,11 @@ public class LxCurveView extends VerticalLayout {
 		// Get all fields names and its values
 		String[] dataFieldNames = GetSetClassInformation.getFieldNames(lxData, new String[] {"lxCurrent", "lxFlow"});
 		String[] dataFieldValues = GetSetClassInformation.getFieldValuesString(lxData, new String[] {"lxCurrent", "lxFlow"});
-		String[] lxCurrentNames = GetSetClassInformation.getFieldNames(lxData.getLxCurrent(), new String[] {"id"});	
-		Float[] lxCurrentValues = GetSetClassInformation.getFieldValuesFloat(lxData.getLxCurrent(), new String[] {"id"});	
-		String[] lxFlowNames = GetSetClassInformation.getFieldNames(lxData.getLxFlow(), new String[] {"id"});	
-		Float[] lxFlowValues = GetSetClassInformation.getFieldValuesFloat(lxData.getLxFlow(), new String[] {"id"});	
-		
+		String[] lxCurrentNames = GetSetClassInformation.getFieldNames(lxData.getLxCurrent(), new String[] {"id"});
+		Float[] lxCurrentValues = GetSetClassInformation.getFieldValuesFloat(lxData.getLxCurrent(), new String[] {"id"});
+		String[] lxFlowNames = GetSetClassInformation.getFieldNames(lxData.getLxFlow(), new String[] {"id"});
+		Float[] lxFlowValues = GetSetClassInformation.getFieldValuesFloat(lxData.getLxFlow(), new String[] {"id"});
+
 		// Get all the header and then the values
 		StringWriter stringWriter = new StringWriter();
 		String row = "";

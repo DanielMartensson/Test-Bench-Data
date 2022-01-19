@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.ConnectException;
 
+import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.slf4j.Logger;
@@ -13,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import org.apache.commons.net.ftp.FTP;
 
 @Component
 @PropertySource("classpath:ftp.properties")
@@ -23,18 +23,18 @@ public class FTPConnection {
 
 	@Value("${ftp.connectionPath}")
 	private String connectionPath; // e.g ftp.example.org/folder/path
-	
+
 	@Value("${ftp.password}")
 	private String password;
-	
+
 	@Value("${ftp.username}")
 	private String username;
-	
+
 	@Value("${ftp.folderPath}")
 	private String folderPath;
-	
+
 	private FTPClient client;
-	
+
 	public void scannFolderOverFTP(String downloadPath) {
 
 		client = new FTPClient();
@@ -52,12 +52,12 @@ public class FTPConnection {
 				FTPFile[] ftpFiles = client.listFiles(folderPath);
 				for (FTPFile fileFTP : ftpFiles) {
 					String localFile = "";
-					if(System.getProperty("os.name").contains("Win") == true) {
+					if(System.getProperty("os.name").contains("Win")) {
 						localFile = downloadPath + "\\" + fileFTP.getName(); // Windows
 					}else {
 						 localFile = downloadPath + "/" + fileFTP.getName(); // Unix
 					}
-					String remoteFile = folderPath + "/" + fileFTP.getName(); 
+					String remoteFile = folderPath + "/" + fileFTP.getName();
 					OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(localFile));
 		            client.retrieveFile(remoteFile, outputStream);
 		            outputStream.flush();
@@ -71,7 +71,7 @@ public class FTPConnection {
 		} catch (ConnectException e) {
 			logger.info("Connection time out - Moving forward...");
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.info("Connection reset after trying to logout");
 		} finally {
 			try {
 				client.disconnect();

@@ -9,9 +9,9 @@ import se.danielmartensson.repositories.LxCurrentRepository;
 
 @Service
 public class LxCurrentService {
-	
+
 	private final LxCurrentRepository lxCurrentRepository;
-	
+
 	public LxCurrentService(LxCurrentRepository lxCurrentRepository) {
         this.lxCurrentRepository = lxCurrentRepository;
     }

@@ -14,7 +14,7 @@ public class RsqData {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull
 	private String orderNumber;
 	@NotNull

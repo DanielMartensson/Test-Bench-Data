@@ -15,7 +15,7 @@ public class LxCurrent {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	private float s0;
 	private float s1;
 	private float s2;

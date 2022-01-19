@@ -16,7 +16,7 @@ public class LxData {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull
 	private String orderNumber;
 	@NotNull
@@ -68,7 +68,7 @@ public class LxData {
 	@NotNull
 	private String date;
 	@NotNull
-	private float oilTemperature; 
+	private float oilTemperature;
 	@NotNull
 	private int iso4P;
 	@NotNull
@@ -109,10 +109,20 @@ public class LxData {
 	private boolean electricalTest;
 	@NotNull
 	private String otherText;
-	
+	@NotNull
+	private float inEndBegTryckinst;
+	@NotNull
+	private float auxBegTryckinst;
+	@NotNull
+	private boolean blockWSMcheck;
+	@NotNull
+	private boolean auxWSMcheck;
+	@NotNull
+	private boolean manManuvCheck;
+
 	@OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
 	private LxCurrent lxCurrent;
-    
+
 	@OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
     private LxFlow lxFlow;
 }

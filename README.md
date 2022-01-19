@@ -24,7 +24,7 @@ line charts, download data in form of CSV files and it's easy to include more da
 - NodeJs +14
 - Maven
 - MySQL or MSSQL
-- OpenJDK +11
+- OpenJDK +17
 
 # How it looks like
 

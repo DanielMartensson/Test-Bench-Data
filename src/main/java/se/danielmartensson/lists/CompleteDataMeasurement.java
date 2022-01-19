@@ -32,7 +32,7 @@ public class CompleteDataMeasurement {
 	private boolean ShuttleLeakageTest;
 	private float ShuttleLeakageValue;
 	private String Date;
-	private float OilTemperature; 
+	private float OilTemperature;
 	private int Iso4P;
 	private int Iso6P;
 	private int Iso14P;
@@ -53,6 +53,11 @@ public class CompleteDataMeasurement {
 	private boolean AssemblyTest;
 	private boolean ElectricalTest;
 	private String OtherText;
+	private float InEndBegTryckinst;
+	private float AuxBegTryckinst;
+	private boolean BlockWSMcheck;
+	private boolean AuxWSMcheck;
+	private boolean ManManuvCheck;
 	private float s0;
 	private float s1;
 	private float s2;

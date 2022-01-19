@@ -66,6 +66,7 @@ public class Graf {
 								.build())
 						.build())
 				.withYaxis(YAxisBuilder.get()
+						.withOpposite(true)
 						.withTitle(TitleBuilder.get()
 								.withText("Measurements")
 								.build())
@@ -85,8 +86,8 @@ public class Graf {
 				.build();
 		apexChart.setWidthFull();
 	}
-	
+
 	static public Series<Float> createSerie(Float[] data, String legend) {
-		return new Series<Float>(legend, data);
+		return new Series<>(legend, data);
 	}
 }

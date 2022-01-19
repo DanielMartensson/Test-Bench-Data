@@ -9,9 +9,9 @@ import se.danielmartensson.repositories.LxDataRepository;
 
 @Service
 public class LxDataService {
-	
+
 	private final LxDataRepository lxDataRepository;
-	
+
 	public LxDataService(LxDataRepository lxDataRepository) {
         this.lxDataRepository = lxDataRepository;
     }

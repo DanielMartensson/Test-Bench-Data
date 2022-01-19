@@ -10,7 +10,6 @@ import org.vaadin.crudui.crud.impl.GridCrud;
 import com.github.appreciated.apexcharts.ApexCharts;
 import com.github.appreciated.apexcharts.helper.Series;
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -18,13 +17,14 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.Route;
+
 import se.danielmartensson.entities.RsqData;
 import se.danielmartensson.service.RsqDataService;
 import se.danielmartensson.tools.DownloadTools;
 import se.danielmartensson.tools.GetSetClassInformation;
 import se.danielmartensson.tools.Graf;
 import se.danielmartensson.tools.MenuLayout;
-import se.danielmartensson.views.RsqDataView;
 
 /**
  * The main view is a top-level placeholder for other views.
@@ -33,7 +33,7 @@ import se.danielmartensson.views.RsqDataView;
 public class RsqDataView extends VerticalLayout {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -70,7 +70,7 @@ public class RsqDataView extends VerticalLayout {
 		// Configuration of the user interface
 		crud.getCrudFormFactory().setUseBeanValidation(true);
 		crud.getCrudFormFactory().setDisabledProperties("id");
-		
+
 		// Download button
 		Anchor downloadButton = new Anchor();
 		downloadButton.getElement().setAttribute("download", true);
@@ -105,12 +105,12 @@ public class RsqDataView extends VerticalLayout {
 				return rsqDataService.save(rsqData);
 			}
 		});
-		
+
 		// Plot values
 		ApexCharts graf = new Graf("ISO contamination").getApexChart();
 		Button updateGraf = new Button("Update graph");
 		updateGraf.addClickListener(e -> updateGrafWithData(crudTable, graf));
-		
+
 		// Layout
 		VerticalLayout layout = new VerticalLayout(crud, new HorizontalLayout(downloadButton,updateGraf, maxLog), graf);
 		layout.setAlignItems(Alignment.START);
@@ -169,7 +169,7 @@ public class RsqDataView extends VerticalLayout {
 			row += "\n";
 			stringWriter.write(row);
 		}
-		
+
 		// Try to download
 		downloadButton.removeHref();
 		downloadButton.setHref(DownloadTools.createStreamResource(stringWriter));
