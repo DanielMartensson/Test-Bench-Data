@@ -15,7 +15,7 @@ public class CompleteDataMeasurement {
 	private float PressureSetup;
 	private float LsprvPressureSetup;
 	private boolean LsprvPressureSetupTest;
-	private boolean EmptyColumn; // Denna är tom och fri att användas
+	private boolean LsprvMutter;
 	private float LoadSetup;
 	private String Operator;
 	private int MaxFlow;
@@ -58,6 +58,8 @@ public class CompleteDataMeasurement {
 	private boolean BlockWSMcheck;
 	private boolean AuxWSMcheck;
 	private boolean ManManuvCheck;
+	private float RsqBanktryckinstallning;
+	private float LsTryckHysteresKurvaMaxFlode;
 	private float s0;
 	private float s1;
 	private float s2;

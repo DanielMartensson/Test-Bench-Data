@@ -3,8 +3,6 @@ package se.danielmartensson.tools;
 import static com.github.appreciated.app.layout.entity.Section.FOOTER;
 import static com.github.appreciated.app.layout.entity.Section.HEADER;
 
-import javax.annotation.PostConstruct;
-
 import org.springframework.stereotype.Component;
 
 import com.github.appreciated.app.layout.component.applayout.LeftLayouts;

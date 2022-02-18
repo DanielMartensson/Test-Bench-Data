@@ -30,7 +30,7 @@ import se.danielmartensson.tools.GetSetClassInformation;
 public class Schedule {
 
 	public static final String VALVE_TYPE_RSQ = "rsq";
-	public static final int LENGTH_OF_NOT_CURREPTED_FILE = 1077;
+	public static final int LENGTH_OF_NOT_CURREPTED_FILE = 1079;
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 

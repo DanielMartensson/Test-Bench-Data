@@ -119,6 +119,10 @@ public class LxData {
 	private boolean auxWSMcheck;
 	@NotNull
 	private boolean manManuvCheck;
+	@NotNull
+	private float rsqBanktryckinstallning;
+	@NotNull
+	private float lsTryckHysteresKurvaMaxFlode;
 
 	@OneToOne(orphanRemoval = true, cascade = CascadeType.ALL)
 	private LxCurrent lxCurrent;
